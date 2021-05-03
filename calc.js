@@ -15,7 +15,8 @@ function preced(a){
    if(a==='+' || a==='-')return 1;
 }
 
-
+// 2.5-1.5
+// -6-6  6,-6,-
 function infixToPostfix(inputexp){
     let operators=[];
     let output="";
@@ -24,12 +25,13 @@ function infixToPostfix(inputexp){
             output+=inputexp[i];
         }
         else if(inputexp[i]==='+' ||inputexp[i]==='-' ||inputexp[i]==='*' ||inputexp[i]==='/'){
-          if(!(operators.length!=0)) output+=',';
-        
+            //handles the condition when we have -ve sign before number also in case of floating numbers.
+            
+            if((output.length!=0)) output+=',';
             while(operators.length!=0 && preced(inputexp[i])<=preced(operators[operators.length-1])){
                
                 output+=operators.pop();
-                // output+=',';
+                output+=',';//handles when when popping operators just as in while below.
             }
             operators.push(inputexp[i]);
         }
@@ -83,7 +85,18 @@ function evaluate(postfix){
         else if(tokens[i] ==="-"){
             let op1 = ansStack.pop();
             let op2 = ansStack.pop();
-            ansStack.push(op2-op1);
+            if(op2===undefined)
+            {
+                ansStack.push(op1*(-1));
+            }
+            else{
+                ansStack.push(op2-op1);
+            }
+            
+
+            console.log({op1});
+            console.log({op2});
+
         }
         else if(tokens[i] ==="*"){
             let op1 = ansStack.pop();
