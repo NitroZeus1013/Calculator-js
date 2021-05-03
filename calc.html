@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./calc.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="dark-mode-btn">
+        <button onclick="darkmode()">Dark-mode</button>
+    </div>
+    <div class="heading">
+        <h2>Introducing</h2>
+        <h1>calC</h1>
+    </div>
+    <div id="calculator" class="dark-mode">
+        <div id="display-container">
+        <div id="main-display">
+            <input id="input-box" placeholder="Welcome to calC" type="text" step="any">
+        </div>
+            
+        <div id="secondary-display">
+        </div>
+        </div>
+        
+
+        <div id="keypad" class="dark-mode">
+
+            <div class="key" onclick="clearDisplay()"> C </div>
+            <div class="key" onclick="takeInputFromKeypad('%')">%</div>
+            <div class="key">+/-</div>
+            <div class="key" onclick="takeInputFromKeypad('/')">/</div>
+            <div class="key" onclick="takeInputFromKeypad('7')">7</div>
+            <div class="key" onclick="takeInputFromKeypad('8')">8</div>
+            <div class="key" onclick="takeInputFromKeypad('9')">9</div>
+            <div class="key" onclick="takeInputFromKeypad('*')"><i style="font-size: 20px;"  class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="key" onclick="takeInputFromKeypad('4')">4</div>
+            <div class="key" onclick="takeInputFromKeypad('5')">5</div>
+            <div class="key" onclick="takeInputFromKeypad('6')">6</div>
+            <div class="key" onclick="takeInputFromKeypad('-')">-</div>
+            <div class="key" onclick="takeInputFromKeypad('1')">1</div>
+            <div class="key" onclick="takeInputFromKeypad('2')">2</div>
+            <div class="key" onclick="takeInputFromKeypad('3')">3</div>
+            <div class="key" onclick="takeInputFromKeypad('0')">0</div>
+            <div class="key" onclick="takeInputFromKeypad('.')">.</div>
+            <div class="key" onclick="takeInputFromKeypad('+')">+</div>
+            <div class="key equal" onclick="calculate()"> = </div>
+            
+        </div>
+
+    </div>
+    <script src="calc.js"></script>
+</body>
+</html>
